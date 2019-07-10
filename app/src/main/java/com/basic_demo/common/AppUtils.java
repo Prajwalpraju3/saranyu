@@ -18,6 +18,12 @@ import com.basic_demo.R;
 
 import androidx.databinding.BindingAdapter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class AppUtils {
 
     @BindingAdapter({"imageUrl"})
@@ -43,6 +49,14 @@ public class AppUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getMonth(String date) throws ParseException {
+        Date d = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(date);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(d);
+        @SuppressLint("SimpleDateFormat") String monthName = new SimpleDateFormat("MMMM").format(cal.getTime());
+        return monthName;
     }
 
 

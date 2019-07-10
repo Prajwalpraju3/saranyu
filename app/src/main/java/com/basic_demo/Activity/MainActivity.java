@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.basic_demo.R;
@@ -16,7 +17,11 @@ import com.basic_demo.adapter.MyDataAdapter;
 import com.basic_demo.databinding.ActivityMainBinding;
 import com.basic_demo.models.Example;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
@@ -39,7 +44,18 @@ ActivityMainBinding binding;
 
         observeViewModel();
 
+        setUp_DateAndTime();
 
+
+    }
+
+    private void setUp_DateAndTime() {
+        String weekDay;
+        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.ENGLISH);
+
+        Calendar calendar = Calendar.getInstance();
+        weekDay = dayFormat.format(calendar.getTime());
+        Log.d("ttt","day ---------->"+weekDay);
     }
 
     private void observeViewModel() {
@@ -49,7 +65,6 @@ ActivityMainBinding binding;
             public void onChanged(List<Example> examples) {
                 binding.llPgbar.setVisibility(View.GONE);
                 maindata = examples;
-
                 myDataAdapter = new MyDataAdapter(maindata,MainActivity.this);
                 binding.rvNews.setAdapter(myDataAdapter);
             }
