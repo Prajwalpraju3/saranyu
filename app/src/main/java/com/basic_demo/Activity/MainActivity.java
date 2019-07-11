@@ -15,11 +15,10 @@ import com.basic_demo.R;
 import com.basic_demo.ViewModels.ListViewModel;
 import com.basic_demo.adapter.MyDataAdapter;
 import com.basic_demo.databinding.ActivityMainBinding;
-import com.basic_demo.models.Example;
+import com.basic_demo.models.ExampleOld;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -28,7 +27,7 @@ ActivityMainBinding binding;
     ListViewModel listViewModel;
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
     MyDataAdapter myDataAdapter;
-    List<Example> maindata;
+    List<ExampleOld> maindata;
 
 
     @Override
@@ -60,11 +59,11 @@ ActivityMainBinding binding;
 
     private void observeViewModel() {
 
-        listViewModel.getObservable().observe(this, new Observer<List<Example>>() {
+        listViewModel.getObservable().observe(this, new Observer<List<ExampleOld>>() {
             @Override
-            public void onChanged(List<Example> examples) {
+            public void onChanged(List<ExampleOld> exampleOlds) {
                 binding.llPgbar.setVisibility(View.GONE);
-                maindata = examples;
+                maindata = exampleOlds;
                 myDataAdapter = new MyDataAdapter(maindata,MainActivity.this);
                 binding.rvNews.setAdapter(myDataAdapter);
             }

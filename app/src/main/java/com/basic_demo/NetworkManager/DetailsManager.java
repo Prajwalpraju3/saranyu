@@ -8,7 +8,7 @@ import com.basic_demo.Interfaces.ApiInterface;
 import com.basic_demo.Interfaces.DataCallBackListener;
 import com.basic_demo.R;
 import com.basic_demo.common.AppUtils;
-import com.basic_demo.models.Example;
+import com.basic_demo.models.ExampleOld;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ import retrofit2.Call;
 
 public class DetailsManager {
     private Context context;
-    private Call<List<Example>> modelCall;
+    private Call<List<ExampleOld>> modelCall;
     private PreferenceManager preferenceManager;
-    private final MutableLiveData<List<Example>> data;
+    private final MutableLiveData<List<ExampleOld>> data;
     private int page_count=10;
     public DetailsManager(Context context){
         this.context=context;
@@ -29,7 +29,7 @@ public class DetailsManager {
         data = new MutableLiveData<>();
     }
 
-    public LiveData<List<Example>> getDetailsModelRequest(String id) {
+    public LiveData<List<ExampleOld>> getDetailsModelRequest(String id) {
 
         if (!AppUtils.isNetworkAvailable(context)) {
             Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT).show();
@@ -42,7 +42,7 @@ public class DetailsManager {
         baseManager.sendRequest(modelCall, new DataCallBackListener() {
             @Override
             public void onResponse(Object body) {
-                    List<Example> list = (List<Example>) body;
+                    List<ExampleOld> list = (List<ExampleOld>) body;
                     data.setValue(list);
 
             }

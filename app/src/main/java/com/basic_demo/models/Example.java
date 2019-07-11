@@ -3,61 +3,31 @@ package com.basic_demo.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class Example {
 
-@SerializedName("id")
+@SerializedName("cnt")
 @Expose
-private String id;
-@SerializedName("title")
+private Long cnt;
+@SerializedName("list")
 @Expose
-private String title;
-@SerializedName("description")
-@Expose
-private String description;
-@SerializedName("category")
-@Expose
-private Category category;
+private ArrayList<DataList> list = null;
 
-boolean bigView;
-
-    public boolean isBigView() {
-        return bigView;
-    }
-
-    public void setBigView(boolean bigView) {
-        this.bigView = bigView;
-    }
-
-    public String getId() {
-return id;
+public Long getCnt() {
+return cnt;
 }
 
-public void setId(String id) {
-this.id = id;
+public void setCnt(Long cnt) {
+this.cnt = cnt;
 }
 
-public String getTitle() {
-return title;
+public ArrayList<DataList> getList() {
+return list;
 }
 
-public void setTitle(String title) {
-this.title = title;
-}
-
-public String getDescription() {
-return description;
-}
-
-public void setDescription(String description) {
-this.description = description;
-}
-
-public Category getCategory() {
-return category;
-}
-
-public void setCategory(Category category) {
-this.category = category;
+public void setList(ArrayList<DataList> list) {
+this.list = list;
 }
 
 }

@@ -3,7 +3,7 @@ package com.basic_demo.ViewModels;
 import android.app.Application;
 
 import com.basic_demo.NetworkManager.DetailsManager;
-import com.basic_demo.models.Example;
+import com.basic_demo.models.ExampleOld;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class ListViewModel extends BaseViewModel {
 
-    private LiveData<List<Example>> liveData;
-    private ObservableField<List<Example>> observableField = new ObservableField<>();
+    private LiveData<List<ExampleOld>> liveData;
+    private ObservableField<List<ExampleOld>> observableField = new ObservableField<>();
     private DetailsManager detailsManager;
     private ListViewModel(Application application, String id){
         super(application);
@@ -30,7 +30,7 @@ public class ListViewModel extends BaseViewModel {
     }
 
 
-    public LiveData<List<Example>> getObservable() {
+    public LiveData<List<ExampleOld>> getObservable() {
         return liveData;
     }
 
