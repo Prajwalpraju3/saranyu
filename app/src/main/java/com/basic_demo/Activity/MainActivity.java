@@ -54,7 +54,6 @@ ActivityMainBinding binding;
 
         Calendar calendar = Calendar.getInstance();
         weekDay = dayFormat.format(calendar.getTime());
-        Log.d("ttt","day ---------->"+weekDay);
     }
 
     private void observeViewModel() {

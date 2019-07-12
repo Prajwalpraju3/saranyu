@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Saranyu weather App</string>
     <string name="no_internet">There seems to be an issue with the network connection. Try again.</string>
+    <string name="lossAngles">Los Angeles</string>
+    <string name="tue">Tuesday, 13.August</string>
+    <string name="digree">56\u00B0</string>
+    <string name="digree_small">86\u00B0 /62\u00B0</string>
+    <string name="main">Rainy</string>
+    <string name="kkk">89%</string>
+    <string name="mum">Mumbai</string>
 </resources>

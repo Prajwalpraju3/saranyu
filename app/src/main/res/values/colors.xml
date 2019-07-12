@@ -7,4 +7,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black_alpha_60">#60000000</color>
     <color name="greay">#39000000</color>
+    <color name="top">#49C5F8</color>
+    <color name="midle">#44B0DE</color>
+    <color name="toptext">#82E5FE</color>
 </resources>

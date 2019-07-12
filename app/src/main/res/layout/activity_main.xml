@@ -22,6 +22,7 @@
       <RelativeLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:visibility="gone"
           android:background="@color/colorPrimary">
 
           <TextView
@@ -52,18 +53,112 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/basePadding"
+    android:background="@color/top"
     android:orientation="vertical"
     >
+
+    <TextView
+        android:id="@+id/tv_cityHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lossAngles"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp56"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp24"/>
 
 
 
 </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:padding="@dimen/basePadding"
+            android:background="@color/midle"
+            android:orientation="horizontal"
+            >
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:padding="@dimen/basePadding"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:id="@+id/tv_currentTemp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/digree"
+                   android:textColor="@color/white"
+                   android:textStyle="bold"
+                   android:textSize="@dimen/sp66"/>
+
+               <TextView
+                   android:id="@+id/tv_main"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/white"
+                   android:text="@string/main"
+                   android:textSize="30sp" />
+           </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/rainy"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/top"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_margin="@dimen/basePadding"
+                android:drawableStart="@drawable/thermometer"
+                android:gravity="center"
+                android:drawablePadding="@dimen/basePadding"
+                android:text="@string/digree_small"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/basePadding"
+                android:textColor="@color/white"
+                android:paddingStart="@dimen/basePadding"
+                android:gravity="center"
+                android:drawablePadding="@dimen/basePadding"
+                android:drawableStart="@drawable/rainsmall"
+                android:text="@string/kkk"/>
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_news"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
         </androidx.recyclerview.widget.RecyclerView>
 
