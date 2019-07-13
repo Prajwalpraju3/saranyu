@@ -3,6 +3,8 @@ package com.basic_demo.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class DataList {
 
 @SerializedName("coord")
@@ -13,7 +15,7 @@ private Coord coord;
 private Sys sys;
 @SerializedName("weather")
 @Expose
-private java.util.List<Weather> weather = null;
+private ArrayList<Weather> weather = null;
 @SerializedName("main")
 @Expose
 private Main main;
@@ -52,11 +54,11 @@ public void setSys(Sys sys) {
 this.sys = sys;
 }
 
-public java.util.List<Weather> getWeather() {
+public ArrayList<Weather> getWeather() {
 return weather;
 }
 
-public void setWeather(java.util.List<Weather> weather) {
+public void setWeather(ArrayList<Weather> weather) {
 this.weather = weather;
 }
 

@@ -3,7 +3,8 @@ package com.basic_demo.common;
 
 public class Const {
 
-    public static final String BASE_URL = "https://api.myjson.com/bins/";
+    public static final String BASE_URL = "https://samples.openweathermap.org/data/2.5/";
+//    public static final String BASE_URL = "https://api.myjson.com/bins/";
 
 
     public static final String SHARED_PREF = "one8crew_pref";
@@ -35,7 +36,8 @@ public class Const {
 
 
     public static class Local {
-        public static final String SUBDOMAIN = "16itnv";
+//        public static final String SUBDOMAIN = "16itnv";
+        public static final String SUBDOMAIN = "group?";
     }
 
     public static class Params {

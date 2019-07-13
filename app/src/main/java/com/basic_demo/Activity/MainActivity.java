@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.basic_demo.R;
 import com.basic_demo.ViewModels.ListViewModel;
 import com.basic_demo.adapter.MyDataAdapter;
 import com.basic_demo.databinding.ActivityMainBinding;
+import com.basic_demo.models.Example;
 import com.basic_demo.models.ExampleOld;
 
 import java.text.SimpleDateFormat;
@@ -27,7 +29,7 @@ ActivityMainBinding binding;
     ListViewModel listViewModel;
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
     MyDataAdapter myDataAdapter;
-    List<ExampleOld> maindata;
+    Example maindata;
 
 
     @Override
@@ -58,13 +60,14 @@ ActivityMainBinding binding;
 
     private void observeViewModel() {
 
-        listViewModel.getObservable().observe(this, new Observer<List<ExampleOld>>() {
+        listViewModel.getObservable().observe(this, new Observer<Example>() {
             @Override
-            public void onChanged(List<ExampleOld> exampleOlds) {
+            public void onChanged(Example exampleOlds) {
                 binding.llPgbar.setVisibility(View.GONE);
                 maindata = exampleOlds;
-                myDataAdapter = new MyDataAdapter(maindata,MainActivity.this);
-                binding.rvNews.setAdapter(myDataAdapter);
+                Toast.makeText(MainActivity.this,maindata.getList().get(0).getName(),Toast.LENGTH_SHORT).show();
+//                myDataAdapter = new MyDataAdapter(maindata,MainActivity.this);
+//                binding.rvNews.setAdapter(myDataAdapter);
             }
         });
     }

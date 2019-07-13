@@ -8,8 +8,10 @@ import com.basic_demo.Interfaces.ApiInterface;
 import com.basic_demo.Interfaces.DataCallBackListener;
 import com.basic_demo.R;
 import com.basic_demo.common.AppUtils;
+import com.basic_demo.models.Example;
 import com.basic_demo.models.ExampleOld;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
@@ -19,9 +21,9 @@ import retrofit2.Call;
 
 public class DetailsManager {
     private Context context;
-    private Call<List<ExampleOld>> modelCall;
+    private Call<Example> modelCall;
     private PreferenceManager preferenceManager;
-    private final MutableLiveData<List<ExampleOld>> data;
+    private final MutableLiveData<Example> data;
     private int page_count=10;
     public DetailsManager(Context context){
         this.context=context;
@@ -29,7 +31,7 @@ public class DetailsManager {
         data = new MutableLiveData<>();
     }
 
-    public LiveData<List<ExampleOld>> getDetailsModelRequest(String id) {
+    public LiveData<Example> getDetailsModelRequest(String id) {
 
         if (!AppUtils.isNetworkAvailable(context)) {
             Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT).show();
@@ -37,12 +39,14 @@ public class DetailsManager {
         }
 
        ApiInterface storeInterface = NetworkGenerator.getAuthClient(context).create(ApiInterface.class);
-        modelCall = storeInterface.getDetails();
+        String fruitArray = "1264527,1269843,1256237,1263780,1262321";
+
+        modelCall = storeInterface.getDetails(fruitArray,"metric","d32091b3739b5fd38c00f4b681ca4004");
         BaseManager baseManager = new BaseManager(context);
         baseManager.sendRequest(modelCall, new DataCallBackListener() {
             @Override
             public void onResponse(Object body) {
-                    List<ExampleOld> list = (List<ExampleOld>) body;
+                Example list = (Example) body;
                     data.setValue(list);
 
             }
