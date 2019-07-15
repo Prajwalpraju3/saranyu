@@ -1,6 +1,7 @@
 package com.basic_demo.NetworkManager;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,6 +11,8 @@ import com.basic_demo.R;
 import com.basic_demo.common.AppUtils;
 import com.basic_demo.models.Example;
 import com.basic_demo.models.ExampleOld;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,12 @@ public class DetailsManager {
 
         if (!AppUtils.isNetworkAvailable(context)) {
             Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT).show();
-            return data;
+            String dataStr=preferenceManager.getStoreData();
+            if(!TextUtils.isEmpty(dataStr)){
+                Example list=new Gson().fromJson(dataStr,Example.class);
+                data.setValue(list);
+                return data;
+            }
         }
 
        ApiInterface storeInterface = NetworkGenerator.getAuthClient(context).create(ApiInterface.class);
@@ -47,6 +55,10 @@ public class DetailsManager {
             @Override
             public void onResponse(Object body) {
                 Example list = (Example) body;
+
+                    String response = new GsonBuilder().create().toJson(list);
+                    preferenceManager.setStoreData(response);
+
                     data.setValue(list);
 
             }
