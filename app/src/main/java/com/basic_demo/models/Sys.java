@@ -7,44 +7,44 @@ public class Sys {
 
 @SerializedName("type")
 @Expose
-private Long type;
+private String type;
 @SerializedName("id")
 @Expose
-private Long id;
+private String id;
 @SerializedName("message")
 @Expose
-private Float message;
+private String message;
 @SerializedName("country")
 @Expose
 private String country;
 @SerializedName("sunrise")
 @Expose
-private Long sunrise;
+private String sunrise;
 @SerializedName("sunset")
 @Expose
-private Long sunset;
+private String sunset;
 
-public Long getType() {
+public String getType() {
 return type;
 }
 
-public void setType(Long type) {
+public void setType(String type) {
 this.type = type;
 }
 
-public Long getId() {
+public String getId() {
 return id;
 }
 
-public void setId(Long id) {
+public void setId(String id) {
 this.id = id;
 }
 
-public Float getMessage() {
+public String getMessage() {
 return message;
 }
 
-public void setMessage(Float message) {
+public void setMessage(String message) {
 this.message = message;
 }
 
@@ -56,19 +56,19 @@ public void setCountry(String country) {
 this.country = country;
 }
 
-public Long getSunrise() {
+public String getSunrise() {
 return sunrise;
 }
 
-public void setSunrise(Long sunrise) {
+public void setSunrise(String sunrise) {
 this.sunrise = sunrise;
 }
 
-public Long getSunset() {
+public String getSunset() {
 return sunset;
 }
 
-public void setSunset(Long sunset) {
+public void setSunset(String sunset) {
 this.sunset = sunset;
 }
 

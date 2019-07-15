@@ -7,13 +7,13 @@ public class Clouds {
 
 @SerializedName("all")
 @Expose
-private Long all;
+private String all;
 
-public Long getAll() {
+public String getAll() {
 return all;
 }
 
-public void setAll(Long all) {
+public void setAll(String all) {
 this.all = all;
 }
 

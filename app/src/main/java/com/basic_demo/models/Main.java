@@ -7,57 +7,57 @@ public class Main {
 
 @SerializedName("temp")
 @Expose
-private Long temp;
+private String temp;
 @SerializedName("pressure")
 @Expose
-private Long pressure;
+private String pressure;
 @SerializedName("humidity")
 @Expose
-private Long humidity;
+private String humidity;
 @SerializedName("temp_min")
 @Expose
-private Long tempMin;
+private String tempMin;
 @SerializedName("temp_max")
 @Expose
-private Long tempMax;
+private String tempMax;
 
-public Long getTemp() {
+public String getTemp() {
 return temp;
 }
 
-public void setTemp(Long temp) {
+public void setTemp(String temp) {
 this.temp = temp;
 }
 
-public Long getPressure() {
+public String getPressure() {
 return pressure;
 }
 
-public void setPressure(Long pressure) {
+public void setPressure(String pressure) {
 this.pressure = pressure;
 }
 
-public Long getHumidity() {
+public String getHumidity() {
 return humidity;
 }
 
-public void setHumidity(Long humidity) {
+public void setHumidity(String humidity) {
 this.humidity = humidity;
 }
 
-public Long getTempMin() {
+public String getTempMin() {
 return tempMin;
 }
 
-public void setTempMin(Long tempMin) {
+public void setTempMin(String tempMin) {
 this.tempMin = tempMin;
 }
 
-public Long getTempMax() {
+public String getTempMax() {
 return tempMax;
 }
 
-public void setTempMax(Long tempMax) {
+public void setTempMax(String tempMax) {
 this.tempMax = tempMax;
 }
 

@@ -65,6 +65,7 @@ ActivityMainBinding binding;
             public void onChanged(Example exampleOlds) {
                 binding.llPgbar.setVisibility(View.GONE);
                 maindata = exampleOlds;
+
                 Toast.makeText(MainActivity.this,maindata.getList().get(0).getName(),Toast.LENGTH_SHORT).show();
 //                myDataAdapter = new MyDataAdapter(maindata,MainActivity.this);
 //                binding.rvNews.setAdapter(myDataAdapter);

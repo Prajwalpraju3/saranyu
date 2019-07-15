@@ -21,7 +21,7 @@ private ArrayList<Weather> weather = null;
 private Main main;
 @SerializedName("visibility")
 @Expose
-private Long visibility;
+private String visibility;
 @SerializedName("wind")
 @Expose
 private Wind wind;
@@ -30,10 +30,10 @@ private Wind wind;
 private Clouds clouds;
 @SerializedName("dt")
 @Expose
-private Long dt;
+private String dt;
 @SerializedName("id")
 @Expose
-private Long id;
+private String id;
 @SerializedName("name")
 @Expose
 private String name;
@@ -70,11 +70,11 @@ public void setMain(Main main) {
 this.main = main;
 }
 
-public Long getVisibility() {
+public String getVisibility() {
 return visibility;
 }
 
-public void setVisibility(Long visibility) {
+public void setVisibility(String visibility) {
 this.visibility = visibility;
 }
 
@@ -94,19 +94,19 @@ public void setClouds(Clouds clouds) {
 this.clouds = clouds;
 }
 
-public Long getDt() {
+public String getDt() {
 return dt;
 }
 
-public void setDt(Long dt) {
+public void setDt(String dt) {
 this.dt = dt;
 }
 
-public Long getId() {
+public String getId() {
 return id;
 }
 
-public void setId(Long id) {
+public void setId(String id) {
 this.id = id;
 }
 

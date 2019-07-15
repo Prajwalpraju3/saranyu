@@ -7,24 +7,24 @@ public class Coord {
 
 @SerializedName("lon")
 @Expose
-private Float lon;
+private String lon;
 @SerializedName("lat")
 @Expose
-private Float lat;
+private String lat;
 
-public Float getLon() {
+public String getLon() {
 return lon;
 }
 
-public void setLon(Float lon) {
+public void setLon(String lon) {
 this.lon = lon;
 }
 
-public Float getLat() {
+public String getLat() {
 return lat;
 }
 
-public void setLat(Float lat) {
+public void setLat(String lat) {
 this.lat = lat;
 }
 
