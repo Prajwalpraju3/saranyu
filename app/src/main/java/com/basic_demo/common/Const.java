@@ -3,7 +3,7 @@ package com.basic_demo.common;
 
 public class Const {
 
-    public static final String BASE_URL = "https://samples.openweathermap.org/data/2.5/";
+    public static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 //    public static final String BASE_URL = "https://api.myjson.com/bins/";
 
 

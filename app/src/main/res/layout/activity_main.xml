@@ -105,7 +105,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:padding="@dimen/basePadding"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -116,6 +116,7 @@
                     android:text="@{datalist.main.temp+@string/digree}"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:singleLine="true"
                     android:textSize="@dimen/sp56"/>
 
                 <TextView
@@ -130,11 +131,11 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.8"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/rainybig"/>
             </LinearLayout>
 

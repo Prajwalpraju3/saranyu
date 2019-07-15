@@ -71,7 +71,7 @@ public class NetworkGenerator {
                             @Override
                             public Response intercept(Chain chain) throws IOException {
                                 Request request = chain.request().newBuilder()
-                                        .addHeader("Accept","application/json")
+//                                        .addHeader("Accept","application/json")
 //                                        .addHeader("user-key","b04cd820e58cc9dd8e850f84354d6c4c")
                                         .build();
                                 return chain.proceed(request);
