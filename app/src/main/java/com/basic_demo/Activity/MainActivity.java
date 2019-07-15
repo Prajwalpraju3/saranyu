@@ -42,18 +42,10 @@ ActivityMainBinding binding;
 
         observeViewModel();
 
-        setUp_DateAndTime();
 
 
     }
 
-    private void setUp_DateAndTime() {
-        String weekDay;
-        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.ENGLISH);
-
-        Calendar calendar = Calendar.getInstance();
-        weekDay = dayFormat.format(calendar.getTime());
-    }
 
     private void observeViewModel() {
 
@@ -64,8 +56,6 @@ ActivityMainBinding binding;
                 binding.llMain.setVisibility(View.VISIBLE);
                 maindata = exampleOlds;
                 binding.setDatalist(maindata.getList().get(0));
-
-                Toast.makeText(MainActivity.this,maindata.getList().get(0).getName(),Toast.LENGTH_SHORT).show();
                 myDataAdapter = new MyDataAdapter(maindata.getList(),MainActivity.this);
                 binding.rvNews.setAdapter(myDataAdapter);
             }
