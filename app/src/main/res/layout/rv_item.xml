@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+<variable
+    name="dataitem"
+    type="com.basic_demo.models.DataList" />
     </data>
 
     <LinearLayout
@@ -14,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mum"
+            android:text="@{dataitem.name}"
             android:textAllCaps="true"
             android:gravity="center"
             android:textStyle="bold"
@@ -23,11 +25,11 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="150dp"
-            android:src="@drawable/cdsun"/>
+            android:src="@drawable/cloud_1"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/digree_small"
+            android:text="@{dataitem.main.tempMin+@string/digree+`/`+dataitem.main.tempMax+@string/digree}"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/greay"/>

@@ -6,22 +6,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.basic_demo.Activity.MainActivity;
 import com.basic_demo.R;
-import com.basic_demo.models.ExampleOld;
+import com.basic_demo.databinding.RvItemBinding;
+import com.basic_demo.models.DataList;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.CutomViewHolder> {
 
-    private List<ExampleOld> mDataList;
+    private ArrayList<DataList> mDataList;
     private Context mContext;
 
 
-    public MyDataAdapter(List<ExampleOld> dataList, Context context) {
-        mDataList = dataList;
+    public MyDataAdapter(ArrayList<DataList> list, MainActivity context) {
+        mDataList = list;
         mContext = context;
     }
 
@@ -29,21 +33,20 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.CutomViewH
     @Override
     public MyDataAdapter.CutomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-       View view = LayoutInflater.from(mContext).inflate(R.layout.item,null);
-        return new CutomViewHolder(view);
+
+        RvItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.rv_item, parent, false);
+        return new CutomViewHolder(mContext, binding.getRoot());
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyDataAdapter.CutomViewHolder holder, int position) {
 
-        ExampleOld exampleOld = mDataList.get(position);
+        DataList item = mDataList.get(position);
+        RvItemBinding binding = (RvItemBinding) holder.getBinding();
+        binding.setVariable(BR.dataitem, item);
+        binding.executePendingBindings();
 
-        holder.tv_head.setText(exampleOld.getTitle());
-        holder.tv_dis.setText(exampleOld.getDescription());
-
-            holder.tv_id.setText("News Ids -"+ exampleOld.getId());
-            holder.tv_id.setVisibility(View.GONE);
-            holder.tv_head.setTextSize(26);
 
     }
 
@@ -53,15 +56,15 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.CutomViewH
     }
     class CutomViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_head,tv_dis,tv_id;
+        RvItemBinding binding;
 
-        CutomViewHolder(@NonNull View itemView) {
+        CutomViewHolder(Context mContext, @NonNull View itemView) {
             super(itemView);
+            binding = DataBindingUtil.bind(itemView);
+        }
 
-            tv_head = (TextView)itemView.findViewById(R.id.tv_head);
-            tv_dis = (TextView)itemView.findViewById(R.id.tv_dis);
-            tv_id = (TextView)itemView.findViewById(R.id.tv_id);
-
+        RvItemBinding getBinding() {
+            return binding;
         }
 }
 

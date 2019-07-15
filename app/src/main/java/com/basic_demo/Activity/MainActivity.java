@@ -4,11 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,17 +16,15 @@ import com.basic_demo.ViewModels.ListViewModel;
 import com.basic_demo.adapter.MyDataAdapter;
 import com.basic_demo.databinding.ActivityMainBinding;
 import com.basic_demo.models.Example;
-import com.basic_demo.models.ExampleOld;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
     ListViewModel listViewModel;
-    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+    GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
     MyDataAdapter myDataAdapter;
     Example maindata;
 
@@ -40,8 +37,8 @@ ActivityMainBinding binding;
 
         ListViewModel.Factory factory = new ListViewModel.Factory(getApplication(), "");
         listViewModel = ViewModelProviders.of(MainActivity.this, factory).get(ListViewModel.class);
-        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        binding.rvNews.setLayoutManager(linearLayoutManager);
+        gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        binding.rvNews.setLayoutManager(gridLayoutManager);
 
         observeViewModel();
 
@@ -64,11 +61,13 @@ ActivityMainBinding binding;
             @Override
             public void onChanged(Example exampleOlds) {
                 binding.llPgbar.setVisibility(View.GONE);
+                binding.llMain.setVisibility(View.VISIBLE);
                 maindata = exampleOlds;
+                binding.setDatalist(maindata.getList().get(0));
 
                 Toast.makeText(MainActivity.this,maindata.getList().get(0).getName(),Toast.LENGTH_SHORT).show();
-//                myDataAdapter = new MyDataAdapter(maindata,MainActivity.this);
-//                binding.rvNews.setAdapter(myDataAdapter);
+                myDataAdapter = new MyDataAdapter(maindata.getList(),MainActivity.this);
+                binding.rvNews.setAdapter(myDataAdapter);
             }
         });
     }
